@@ -1,0 +1,55 @@
+@import '../../scss/mixins';
+@import '../../scss/theme';
+
+.card {
+  $card: &;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  background-color: $bgLight;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+
+  &Horizontal {
+    @include md {
+      flex-direction: row;
+      & #{$card}Image { flex-grow: 2; }
+      & #{$card}Body { flex-grow: 3; }
+    }
+
+    @include lg { max-width: 70vw; }
+  }
+
+  &Image {
+    flex: 3 1 0%;
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+  }
+
+  &Body {
+    flex: 2 1 0%;
+    padding: 1rem;
+    color: $textPrimary;
+  }
+
+  &Title {
+    font-size: 1.5rem;
+    margin-bottom: 0.2em;
+  }
+
+  &Subtitle {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.42);
+  }
+
+  &Text {
+    margin-top: 1rem;
+
+    & > * {
+      margin-bottom: 0.7rem;
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
